@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<report
+
+  id="action_report_bien_grupo"
+  string="Listado De Bienes Por Grupo De Bien"
+  model="bienes.grupo.bien.reporte.wizard"
+  report_type="qweb-html"
+  name="bienes.bien_grupo_listado_render"
+  paperformat="bienes.paperformat_listado_bien_grupo"
+  file="bienes.bien_grupo_listado_template"
+  
+  
+  menu="False"/>
+  <!--paperformat="bienes.paperformat_listado_bien_grupo"-->
+  
+
+
+
+
+  
+
+
+     
+              
+<template id="bien_grupo_listado_render">
+    <t t-call="web.html_container">    
+        <t t-call="web.external_layout">
+                <t t-set='linea' t-value='0'/>
+                <t t-set='swPagina' t-value='0'/> 
+                
+
+				<t t-foreach="docs" t-as="bienes">
+					<div class="page">
+                        <t t-set='linea' t-value='linea+1'/>
+                        <t t-if='swPagina==0'>
+                            <t t-set='swPagina' t-value='1'/>
+                            <t t-call="bienes.bien_encabezado_reporte"></t>
+                            <t t-call="bienes.bien_agrupacion_grupo_reporte"></t>
+                            
+                            
+                            <t t-call="bienes.bien_encabezado_tabla"></t> 
+						</t>
+						        <table style="border:1px solid black; width:100%">
+									<tr style="height:60px" valign="top">
+										<td style="border:1px solid black; width:8%; text-align:center">
+											<small t-esc="bienes['bienes_numbien']"/>
+										</td>	
+										<td style="border:1px solid black; width:47%; text-align:left">
+											<small t-esc="bienes['bienes_nombre']" style="margin-left:4px"/>
+										</td>	
+										<td style="border:1px solid black; width:25%; text-align:left" >
+												<small t-esc="bienes['bienes_sedes_id'][1]" style="margin-left:4px"/><small> / </small>
+                                                <small t-esc="bienes['bienes_oficinas_id'][1]"/>
+										</td>                                
+										<td style="border:1px solid black; width:10%; text-align:center">
+											<!-- Nota al pasar un campo texto por parametro da error-->
+											<!-- por lo cual hay que guardarlo en una variable y dspues-->
+											<!-- pasarlo por parametro -->
+											     <small t-esc="bienes['estado_bien_id'][1]"/>
+										</td> 
+									</tr>
+									</table>
+                                    
+									<t t-if='linea==7'>
+										<div style='page-break-after: always;'></div>                                       
+										<t t-set='swPagina' t-value='0'/>
+										<t t-set='linea' t-value='0'/>      
+                                    </t>
+                    </div>                 
+				</t>
+				
+				<t t-if='swPagina == 0'>
+					<t t-if='linea == 0'>
+					    <div class="page">
+							<div style='page-break-after: always;'></div>
+                            <t t-call="bienes.bien_encabezado_reporte"></t>
+                            <t t-call="bienes.bien_agrupacion_grupo_reporte"></t>
+                            <br/>
+						</div>					    
+					</t>
+				</t>
+				<br/>
+				<div align="center">
+				<table style="border:1px solid black; width:40%;">
+					<tr style="height:40px" valign="top">
+						<td style="border:1px solid black; width:8%; text-align:center">
+							<span style="font-weight:700">Total de Bienes: </span>
+							<small t-esc="nro_bienes"/>
+						</td>	
+					</tr>	
+				</table>
+				</div>	    
+						
+				
+									
+        </t>
+    </t>              
+</template>
+
+
+<record id="paperformat_listado_bien_grupo" model="report.paperformat">
+    <field name="name">European A4</field>
+    <field name="default" eval="True" />
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <!--<field name="orientation">Portrait</field>-->
+    <field name="orientation">Landscape</field>
+    <field name="margin_top">35</field>
+    <field name="margin_bottom">20</field>
+    <field name="margin_left">5</field>
+    <field name="margin_right">5</field>
+    <field name="header_line" eval="False" />
+    <field name="header_spacing">25</field>
+    <field name="dpi">90</field>
+</record>
+
+
+</odoo>
+
