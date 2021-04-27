@@ -23,5 +23,5 @@
 
 from . import ficha_bien_oficina_listado_render
 from . import bien_grupo_listado_render
-
-
+from . import bien_clasificacion_marca_listado_render
+from . import ficha_bien_principal_render

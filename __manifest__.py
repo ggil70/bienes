@@ -25,9 +25,14 @@
         'report/bien_encabezado_template.xml',
         'report/ficha_bien_oficina_listado_template.xml',
         'report/bien_grupo_listado_template.xml',
+        'report/bien_clasificacion_marca_listado_template.xml',
+        
+        'report/ficha_bien_principal_template.xml',
+        
 
         'wizard/ficha_bien_oficina_reporte_wizard.xml',
         'wizard/listado_bien_grupo_reporte_wizard.xml',
+        'wizard/listado_bien_clasificacion_marca_reporte_wizard.xml'
         #'views/views.xml',
         #'report/report.xml',
         #'report/inventario_bienes_template.xml',

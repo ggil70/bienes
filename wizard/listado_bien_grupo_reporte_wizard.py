@@ -67,7 +67,7 @@ class ListadoBienGrupoReporteWizard(models.TransientModel):
         
         #fecha = str(today.day) + "/" + str(today.month) + "/" + str(today.year)  
       
-        grupo_data = self.env['bienes'].search_read(domain)
+        grupo_data = self.env['bienes'].search_read(domain ,order='grupo_bien_id, clasificador_bien_id, modelo_bien_id, bienes_numbien asc')
         
         #cantidad = self.env['bienes'].search_count(domain)
         cantidad = len(grupo_data)

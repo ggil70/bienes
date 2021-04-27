@@ -436,6 +436,11 @@ class bienes(models.Model):
         codigo = self.modelo_fab_id.modelo_fab_codigo
         self.modelo_fab_codigo =  codigo   
 
+    def fecha_actual():
+        today = fields.Datetime.now()
+        fecha = today.strftime('%d/%m/%Y')        
+        return fecha     
+ 
  
     _defaults = { 
         'sw_desin': False,

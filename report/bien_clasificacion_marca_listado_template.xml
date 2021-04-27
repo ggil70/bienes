@@ -4,28 +4,20 @@
 
 <report
 
-  id="action_report_bien_grupo"
-  string="Listado De Bienes Por Grupo De Bien"
-  model="bienes.grupo.bien.reporte.wizard"
+  id="action_report_bien_clasificacion_marca"
+  string="Listado De Bienes Por Marca"
+  model="bienes.clasificacion_marca.bien.reporte.wizard"
   report_type="qweb-html"
-  name="bienes.bien_grupo_listado_render"
-  
+  name="bienes.bien_clasificacion_marca_listado_render"
+  paperformat="bienes.paperformat_listado_bien_clasificacion_marca"
   file="bienes.bien_grupo_listado_template"
   
   
   menu="False"/>
-  <!--paperformat="bienes.paperformat_listado_bien_grupo""-->
+  <!--paperformat="bienes.paperformat_listado_bien_clasificacion_marca""-->
   
 
-
-
-
-  
-
-
-     
-              
-<template id="bien_grupo_listado_render">
+<template id="bien_clasificacion_marca_listado_render">
     <t t-call="web.html_container">    
         <t t-call="web.external_layout">
                 <t t-set='linea' t-value='0'/>
@@ -38,7 +30,7 @@
                         <t t-if='swPagina==0'>
                             <t t-set='swPagina' t-value='1'/>
                             <t t-call="bienes.bien_encabezado_reporte"></t>
-                            <!--<t t-call="bienes.bien_agrupacion_grupo_reporte"></t>-->
+                            <!--<t t-call="bienes.bien_agrupacion_marca_reporte"></t>-->
                             
                             
                             <t t-call="bienes.bien_encabezado_tabla"></t> 
@@ -52,8 +44,8 @@
 												<small t-esc="bienes['clasificador_bien_id'][1]" style="margin-left:4px"/><small> / </small>
                                                 <small t-esc="bienes['modelo_bien_id'][1]"/>
                                             
-										</td>	
-
+										</td>                                        
+                                        
 										<td style="border:1px solid black; width:45%; text-align:left">
 											<small t-esc="bienes['bienes_nombre']" style="margin-left:4px"/>
 										</td>	
@@ -107,7 +99,7 @@
 </template>
 
 
-<record id="paperformat_listado_bien_grupo" model="report.paperformat">
+<record id="paperformat_listado_bien_clasificacion_marca" model="report.paperformat">
     <field name="name">European A4</field>
     <field name="default" eval="True" />
     <field name="format">A4</field>

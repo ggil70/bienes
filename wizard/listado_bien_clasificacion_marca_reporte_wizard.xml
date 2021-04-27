@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
      
-
-<record model="ir.ui.view" id="bienes_grupo_bien_reporte_wizard_form">
-        <field name="name">bienes_grupo_bien_reporte_wizard_form</field>
-        <field name="model">bienes.grupo.bien.reporte.wizard</field>
+                               
+<record model="ir.ui.view" id="bienes_clasificacion_marca_reporte_wizard_form">
+        <field name="name">bienes_clasificacion_marca_reporte_wizard_form</field>
+        <field name="model">bienes.marca.bien.reporte.wizard</field>
         <field name="arch" type="xml">
-            <form string="Listado De Clasificación Del Bien">
+            <form string="Listado De Marcas Del Bien">
                 <sheet>
                     <group>
                       <field name="bienes_grupo_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
                       <field name="bienes_clasificador_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-                      <field name="bienes_modelo_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+                      <field name="bienes_marcas_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+                      <!--<field name="modelo_fab_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>-->
                     </group> 
 
                 </sheet>
             
                 <footer>
-                    <button name="action_report_grupo_bienes" type="object" 
+                    <button name="action_report_clasificacion_marca_bienes" type="object" 
                             string="Generar Listado" class="oe_highlight"/>
 
                     <span class="or_cancel">
@@ -31,12 +32,12 @@
     
     
 <!-- Acciones -->
-<record model="ir.actions.act_window" id="action_bienes_grupo_bien_reporte_wizard">
-        <field name="name">Listado De Clasificación Del Bien</field>
-        <field name="res_model">bienes.grupo.bien.reporte.wizard</field>
+<record model="ir.actions.act_window" id="action_bienes_clasificacion_marca_reporte_wizard">
+        <field name="name">Listado De Bienes por Marcas</field>
+        <field name="res_model">bienes.marca.bien.reporte.wizard</field>
         <field name="type">ir.actions.act_window</field>
         <field name='view_mode'>form</field>
-        <field name='view_id' ref="bienes_grupo_bien_reporte_wizard_form"/>
+        <field name='view_id' ref="bienes_clasificacion_marca_reporte_wizard_form"/>
         <field name='target'>new</field>
 </record>
 
@@ -44,9 +45,9 @@
 
 <menuitem name="Reportes" id="reporte_bien" parent="menu_p" />
 
-<menuitem name="Listado De Clasificador Del Bien" 
-          id="menu_bienes_grupo_bien_reporte_wizard"
-          action="action_bienes_grupo_bien_reporte_wizard"
+<menuitem name="Listado De Bienes por Marca" 
+          id="menu_bienes_clasificacion_marca_reporte_wizard"
+          action="action_bienes_clasificacion_marca_reporte_wizard"
           parent="reporte_bien"/>
 
       

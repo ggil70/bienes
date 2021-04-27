@@ -40,7 +40,7 @@ class FichaOficinaBienReporteWizard(models.TransientModel):
         domain = []
         domain = [('bienes_oficinas_id','=',self.bienes_oficinas_id.id)]
         
-        bienes_data = self.env['bienes'].search_read(domain)
+        bienes_data = self.env['bienes'].search_read(domain,order='bienes_numbien asc')
         
         tot_costo = 0.00
         #Permite obtener total de bienes

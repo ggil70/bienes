@@ -35,17 +35,46 @@
 
 </template>
 
+
+<template id="bien_encabezado_ficha_principal_reporte">
+        <div style="text-align:right">
+            <span style="font-weight:700"><small>FECHA: </small></span> <small t-esc="bienes.fecha_actual()"></small>
+        </div> 
+        <br/>       
+        <div style="text-align:center">
+            <span style="font-weight:700; font-size:16px">FICHA BIEN</span>
+        </div>
+</template>
+
+<template id="bien_agrupacion_marca_reporte">
+        <table style="border:1px solid black; width:100%">
+        <tr>
+            <td style="border:1px solid black; ; height:20px">
+                <span style="font-size:14px; font-weight:700; margin-left:1px">MARCA: </span>
+                <span t-esc="marca" style="font-size:14px; margin-left:2px"/>
+            </td>
+        </tr>
+        </table>
+
+</template>
+
+
 <template id="bien_encabezado_tabla">
 
         <table style="border:1px solid black; width:100%">
         <tr style=" height:60px" align="center">
-            <td style="border:1px solid black; width:8%" >
+            <td style="border:1px solid black; width:6%" >
                 <span style="font-size:12px; font-weight:700;">NÚMERO DEL BIEN </span>
             </td>
-            <td style="border:1px solid black; width:47%">
+
+            <td style="border:1px solid black; width:20%" >
+                <span style="font-size:12px; font-weight:700;">CLASIFICACIÓN / MODELO </span>
+            </td>
+            
+            <td style="border:1px solid black; width:45%">
                 <span style="font-size:12px; font-weight:700">DESCRIPCIÓN DEL BIEN </span>
             </td>
-            <td style="border:1px solid black; width:25%" >
+            <td style="border:1px solid black; width:19%" >
                 <span style="font-size:12px; font-weight:700; margin-left:1px">SEDE / OFICINA </span>
             </td>
             <td style="border:1px solid black; width:10%">
