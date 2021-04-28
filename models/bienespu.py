@@ -33,6 +33,14 @@ class bienes(models.Model):
     _name = 'bienes'
     _rec_name = 'bienes_numbien'
     _order = 'bienes_numbien'  
+
+    def fecha_actual(self):
+        today = fields.Datetime.now()
+        fecha = today.strftime('%d/%m/%Y')        
+        return fecha     
+
+
+
     
     bienes_numbien = fields.Char('Numero del Bien',size=20, help='Registra el Numero de Bien Nacional')
     bienes_nombre  = fields.Text('Descripcion del Bien', size=300, help='Registra la Descripcion del Bien')
@@ -227,24 +235,8 @@ class bienes(models.Model):
                                    'movimiento_deta_id' : id_movi_deta,
                                    'inventario_inicial':1,
                             })
-                            
-                                    
-        
-    
-            
-                      
-                           
-        
-                                  
-                          
-        
-        
         #raise ValidationError('id bien ' + str(self.id) + " " + str(self.bienes_numbien) + "   usuario: " + str(self.env.user.id))
       
-        
-
-
-
 
     @api.onchange('bienes_regiones_id')
     def onchange_bienes_regiones(self):
@@ -436,10 +428,6 @@ class bienes(models.Model):
         codigo = self.modelo_fab_id.modelo_fab_codigo
         self.modelo_fab_codigo =  codigo   
 
-    def fecha_actual():
-        today = fields.Datetime.now()
-        fecha = today.strftime('%d/%m/%Y')        
-        return fecha     
  
  
     _defaults = { 

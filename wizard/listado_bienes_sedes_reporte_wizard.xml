@@ -2,21 +2,20 @@
 <odoo>
      
 
-<record model="ir.ui.view" id="bienes_ficha_bien_reporte_wizard_form">
-        <field name="name">bienes_ficha_bien_reporte_wizard_form</field>
-        <field name="model">bienes.ficha.oficina.bien.reporte.wizard</field>
+<record model="ir.ui.view" id="bienes_listado_bienes_sedes_reporte_wizard_form">
+        <field name="name">bienes_listado_bienes_sedes_reporte_wizard_form</field>
+        <field name="model">bienes.listado.bienes.sedes.reporte.wizard</field>
         <field name="arch" type="xml">
-            <form string="Listado De Bienes Por Oficina">
+            <form string="Listado De Bienes Por Sede">
                 <sheet>
                     <group>
                       <field name="bienes_sedes_id"/>
-                      <field name="bienes_oficinas_id"/>
                     </group> 
 
                 </sheet>
             
                 <footer>
-                    <button name="action_report_bienes" type="object" 
+                    <button name="action_report_bienes_sedes" type="object" 
                             string="Generar Listado" class="oe_highlight"/>
 
                     <button special="cancel" type="object" 
@@ -29,12 +28,12 @@
     
     
 <!-- Acciones -->
-<record model="ir.actions.act_window" id="action_bienes_ficha_bien_reporte_wizard">
-        <field name="name">Listado De Bienes Por Oficina</field>
-        <field name="res_model">bienes.ficha.oficina.bien.reporte.wizard</field>
+<record model="ir.actions.act_window" id="action_listado_bienes_sedes_reporte_wizard">
+        <field name="name">Listado De Bienes Por Sedes</field>
+        <field name="res_model">bienes.listado.bienes.sedes.reporte.wizard</field>
         <field name="type">ir.actions.act_window</field>
         <field name='view_mode'>form</field>
-        <field name='view_id' ref="bienes_ficha_bien_reporte_wizard_form"/>
+        <field name='view_id' ref="bienes_listado_bienes_sedes_reporte_wizard_form"/>
         <field name='target'>new</field>
 </record>
 
@@ -42,9 +41,9 @@
 
 <menuitem name="Reportes" id="reporte_bien" parent="menu_p" />
 
-<menuitem name="Listado De Bienes Por Oficina" 
-          id="menu_bienes_ficha_bien_reporte_wizard"
-          action="action_bienes_ficha_bien_reporte_wizard"
+<menuitem name="Listado De Bienes Por Sede" 
+          id="menu_bienes_listado_bienes_sedes_reporte_wizard"
+          action="action_listado_bienes_sedes_reporte_wizard"
           parent="reporte_bien"/>
 
       

@@ -33,12 +33,13 @@
                 <t t-call="web.external_layout">
                     <div class="page">
                         <div>    
-                            <span style="font-weight:700"><small>FECHA: </small></span> <small t-esc="bienes.fecha_actual()"></small>
+                            <!--<span style="font-weight:700"><small>FECHA: </small></span> <small t-esc="bienes.fecha_actual()"></small>-->
                             <!--<br/>-->
                         </div> 
                         
                         <!-- Titulo del reporte -->   
                         <div style="text-align:center">
+                            <br/>
                             <span style="font-weight:700; font-size:16px">FICHA DEL BIEN NACIONAL</span>
                             <br/>
                         </div>
@@ -48,8 +49,7 @@
                             <td style="border:1px solid black; width:20%">
                                 <span style="font-size:14px; font-weight:700; margin-left:3px">N° BIEN: </span>
                                 <!--<span t-esc="o['bienes_numbien']" style="font-size:14px; margin-left:2px"/>-->
-                                <!--<small t-field="bienes['bienes_numbien']" />-->
-                                <small t-field="bienes.bienes_numbien" style="margin-left:3px"/>
+                                <small t-field="bienes.bienes_numbien" />
                             </td>
                         
                             <td style="border:1px solid black; width:80%">
@@ -67,20 +67,20 @@
                         </tr>
                         <tr>
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">GRUPO</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">GRUPO</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px;">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.grupo_bien_id.grupo_bien_nombre" style="margin-left:3px"/>
                                       
                             </td>
                         </tr>
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">CLASIFICADOR</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">CLASIFICADOR</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px;">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.clasificador_bien_id.clasificador_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -88,20 +88,20 @@
                         
                       <tr>
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">MODELO</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">MODELO</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.modelo_bien_id.modelo_nombre" style="margin-left:3px"/>
                                       
                             </td>
                         </tr>
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">DETALLE</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">DETALLE</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.detalle_modelo_id.detalle_modelo_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -110,20 +110,20 @@
                         
                         <tr>
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">MATERIAL</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">MATERIAL</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.material_id.material_nombre" style="margin-left:3px"/>
                                       
                             </td>
                         </tr>
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">COLOR</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">COLOR</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.color_id.color_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -131,10 +131,10 @@
                         
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">MARCA/MODELO</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">MARCA/MODELO</span>
                             </td>
                              
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.marcas_id.marcas_nombre" style="margin-left:3px"/>
                                 <span> / </span>
                                 <span t-field="bienes.modelo_fab_id.modelo_fab_nombre" style="margin-left:3px"/>
@@ -150,11 +150,11 @@
                         </tr>
                         
                         <tr>    
-                            <td style="border:1px solid black; width:20%; font-size:12px">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">SEDE</span>
+                            <td style="border:1px solid black; width:20%">
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">SEDE</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.bienes_sedes_id.sedes_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -162,10 +162,10 @@
                         
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">OFICINA</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">OFICINA</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.bienes_oficinas_id.oficinas_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -173,20 +173,20 @@
                         
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">UBICACIÓN FÍSICA</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">UBICACIÓN FÍSICA</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.bienes_ubica_id.ubicacion_fisica_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
                         </tr>  
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">PISO</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">PISO</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.bienes_piso" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -200,20 +200,20 @@
                         
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">RESPONSABLE USO</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">RESPONSABLE USO</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.resp_uso_id" style="margin-left:3px"/>
                                       
                             </td>                            
                         </tr> 
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">MOVIMIENTO BIEN</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">MOVIMIENTO BIEN</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.tipo_estatus_inventario_id.nom_estatus" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -221,20 +221,20 @@
 
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">FECHA MOVIMIENTO</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">FECHA MOVIMIENTO</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.fech_inventario" style="margin-left:3px"/>
                                       
                             </td>                            
                         </tr>                                                        
                         <tr>    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">ESTADO BIEN</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">ESTADO BIEN</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.estado_bien_id.estado_bien_nombre" style="margin-left:3px"/>
                                       
                             </td>                            
@@ -242,10 +242,10 @@
 
                         <tr style="height:100px">    
                             <td style="border:1px solid black; width:20%">
-                                <span style="font-weight:700; font-size:12px; text-align:center;margin-left:3px">OBSERVACIÓN</span>
+                                <span style="font-weight:700; font-size:14px; text-align:center;margin-left:3px">OBSERVACIÓN</span>
                             </td>
                             
-                             <td style="border:1px solid black; width:80%; font-size:12px">
+                             <td style="border:1px solid black; width:80%">
                                 <span t-field="bienes.observacion" style="margin-left:3px"/>
                                       
                             </td>                            

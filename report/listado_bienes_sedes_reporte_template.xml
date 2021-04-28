@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<report
+
+  id="action_report_bienes_sedes"
+  string="Listado de Bienes por Sede"
+  model="bienes.listado.bienes.sedes.reporte.wizard"
+  report_type="qweb-html"
+  name="bienes.listado_bienes_sedes_reporte_render"
+  file="bienes.listado_bienes_sedes_reporte_template"
+  paperformat="bienes.paperformat_listado_bienes_sedes"
+  menu="False"/>
+  
+  <!--paperformat="bienes.paperformat_listado_bienes_sedes"-->
+
+
+<template id="listado_bienes_sedes_reporte_render">
+    <t t-call="web.html_container">    
+        <t t-call="web.external_layout">
+            <t t-set='linea' t-value='0'/>
+            <t t-set='sw_inicio' t-value='0'/>
+            <t t-set='sw_final' t-value='0'/>
+            <t t-set='swPagina' t-value='0'/>
+            <t t-set='oficina_id' t-value='0'/>
+            <t t-set='sw_oficina' t-value='0'/>
+            <t t-set='sw_resumen' t-value='0'/>
+            <t t-set='total_oficina' t-value='0'/>
+             
+
+            <t t-foreach="docs" t-as="bienes">
+                <div class="page">
+                    <t t-if="oficina_id != bienes['bienes_oficinas_id']">
+
+                        <t t-set='oficina_id' t-value='bienes["bienes_oficinas_id"]'/>
+                        <t t-if="sw_inicio==1">
+                            <t t-if='linea > 5'>
+                                <div style='page-break-after: always;'></div>
+                            </t>        
+                            <br/>
+                            
+                            <t t-call="bienes.listado_bienes_x_sedes_total_oficina"></t>
+                            
+                            
+                            <t t-if="sw_oficina==1">
+                                <div style='page-break-after: always;'></div>
+                                <t t-set='sw_oficina' t-value='0'/>
+                            </t>
+                                
+                            <t t-set='total_oficina' t-value='0'/>
+                            <t t-set='linea' t-value='0'/>
+                        </t>    
+                    </t>
+                    
+                    <t t-if="sw_oficina==0">
+                        <t t-set='sw_oficina' t-value='1'/>
+                        
+                        <t t-call="bienes.listado_bienes_x_sedes_header"></t>
+                        
+                        
+                        <table style="border:1px solid black; width:100%">
+                        <tr style=" height:60px" align="center">
+                            <td style="border:1px solid black; width:8%" >
+                                <span style="font-size:12px; font-weight:700;">NÚMERO DEL BIEN </span>
+                            </td>
+                            <td style="border:1px solid black; width:42%" >
+                                <span style="font-size:12px; font-weight:700;">DESCRIPCIÓN DEL BIEN </span>
+                            </td> 
+                            <td style="border:1px solid black; width:12%" >
+                                <span style="font-size:12px; font-weight:700;">ASIGNADO A </span>
+                            </td> 
+                            <td style="border:1px solid black; width:8%" >
+                                <span style="font-size:12px; font-weight:700;">FECHA ASIGNACIÓN </span>
+                            </td> 
+                            <td style="border:1px solid black; width:10%" >
+                                <span style="font-size:12px; font-weight:700;">ESTADO USO </span>
+                            </td> 
+                            <td style="border:1px solid black; width:20%" >
+                                <span style="font-size:12px; font-weight:700;">OBSERVACIÓN </span>
+                            </td>                            
+
+                            
+                                                       
+                        </tr>
+                        </table>    
+                    </t>
+                    
+                    <t t-set='sw_inicio' t-value='1'/>
+                    <t t-set='total_oficina' t-value='total_oficina + 1'/>
+                    <t t-set='linea' t-value='linea+1'/>
+                    
+                    
+                    <table style="border:1px solid black; width:100%">
+                        <tr style="height:60px" valign="top">
+                            <td style="border:1px solid black; width:8%; text-align:center">
+                                <span t-esc="bienes['bienes_numbien']" style="font-size:12px;"/>
+                            </td>
+                            <td style="border:1px solid black; width:42%; text-align:left">
+                                <span t-esc="bienes['bienes_nombre']" style="font-size:12px; margin-left:4px"/>
+                            </td>
+                            <td style="border:1px solid black; width:12%; text-align:center">
+                                <span t-esc="bienes['personas_pnombre']" style="font-size:12px;"/><span> </span>
+                                <span t-esc="bienes['personas_papellido']" style="font-size:12px;"/>
+                            </td>
+                            <td style="border:1px solid black; width:8%; text-align:center">
+                                <span t-esc="bienes['fech_inventario']" style="font-size:12px;"/>
+                            </td>
+                            <td style="border:1px solid black; width:10%; text-align:center">
+                                <span t-esc="bienes['estado_bien_nombre']" style="font-size:12px; "/>
+                            </td>
+                            <td style="border:1px solid black; width:20%; text-align:left">
+                                <t t-set='observa' t-value='bienes["observacion"]'/>
+                                <span style="font-size:10px; margin-left:4px;" t-esc="m_observacion(observa)"/>
+                            </td>
+                        </tr>
+                    </table>        	                    
+                    
+                    <t t-if='linea==7'>
+						<div style='page-break-after: always;'></div>                                       
+						<t t-set='linea' t-value='0'/>  
+                        <t t-set='sw_oficina' t-value='0'/>    
+                    </t>                    
+                </div>      
+            </t>
+            
+
+            <t t-if='sw_oficina == 1'>
+                <t t-if='linea > 5'>
+                     <t t-set='sw_oficina' t-value='0'/>
+                    <div class="page">
+                        <div style='page-break-after: always;'></div>
+                        <t t-call="bienes.listado_bienes_x_sedes_header"></t>
+                    </div>					    
+                </t>
+            </t>
+            <br/>
+            <t t-set='sw_final' t-value='1'/>
+            <t t-call="bienes.listado_bienes_x_sedes_total_oficina"></t>
+        </t>
+    </t>              
+</template>
+
+
+<record id="paperformat_listado_bienes_sedes" model="report.paperformat">
+    <field name="name">European A4</field>
+    <field name="default" eval="True" />
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <!--<field name="orientation">Portrait</field>-->
+    <field name="orientation">Landscape</field>
+    <field name="margin_top">35</field>
+    <field name="margin_bottom">20</field>
+    <field name="margin_left">5</field>
+    <field name="margin_right">5</field>
+    <field name="header_line" eval="False" />
+    <field name="header_spacing">25</field>
+    <field name="dpi">90</field>
+</record>
+
+
+</odoo>
+

@@ -2,10 +2,68 @@
 <odoo>
 
 
-  
+<!--
+   LISTADO BIENES POR SEDES
+-->
+
+<template id="bienes.listado_bienes_x_sedes_header">
+    <div style="text-align:left">
+        <span style="font-weight:700"><small>FECHA: </small></span><small t-esc="date_today"/>
+    </div>
+    <br/>
+    <div style="text-align:center">
+        <span style="font-weight:700; font-size:16px">LISTADO DE BIENES POR SEDE</span>
+    </div>
+
+    <table style="border:1px solid black; width:100%">
+    <tr>
+        <td style="border:1px solid black; height:20px">
+            <span style="font-size:14px; font-weight:700; margin-left:1px">SEDE: </span>
+            <span t-esc="sede" style="font-size:14px; margin-left:2px "/>
+        </td>
+    </tr>
+    <t t-if='sw_oficina == 1'>
+        <tr>
+            <td style="border:1px solid black; ; height:20px">
+                <span style="font-size:14px; font-weight:700; margin-left:1px">OFICINA: </span>
+                <span t-esc="bienes['oficinas_nombre']" style="font-size:14px; margin-left:2px"/>
+            </td>
+        </tr>
+    </t>    	
+    </table>
+</template>
+
+
+<template id="bienes.listado_bienes_x_sedes_total_oficina">
+    <div align="center">
+    <table style="border:1px solid black; width:40%;">
+        <tr style="height:40px" valign="top">
+            <td style="border:1px solid black; width:8%; text-align:center">
+                <span style="font-weight:700">Total de Bienes de la Oficina: </span>
+                <small t-esc="total_oficina"/>
+            </td>	
+        </tr> 
+        <t t-if='sw_final == 1'> 
+            <tr style="height:40px" valign="top">
+                <td style="border:1px solid black; width:8%; text-align:center">
+                    <span style="font-weight:700; font-size:14px">Total de Bienes Sede: </span>
+                    <span> </span>
+                    <span t-esc="nro_bienes" style="font-size:14px"/>
+                </td>                    
+                
+            </tr>	
+        </t>    
+    </table> 
+    </div>                             
+</template>
+
+ <!--   Fin  LISTADO BIENES POR SEDES  -->
+
+
+
 
 <template id="bien_encabezado_reporte">
-        <div style="text-align:right">
+        <div style="text-align:left">
             <span style="font-weight:700"><small>FECHA: </small></span><small t-esc="date_today"/>
         </div> 
         <br/>       
@@ -23,6 +81,12 @@
 </template>
 
 
+
+
+
+
+
+
 <template id="bien_agrupacion_grupo_reporte">
         <table style="border:1px solid black; width:100%">
         <tr>
@@ -37,7 +101,7 @@
 
 
 <template id="bien_encabezado_ficha_principal_reporte">
-        <div style="text-align:right">
+        <div style="text-align:left">
             <span style="font-weight:700"><small>FECHA: </small></span> <small t-esc="bienes.fecha_actual()"></small>
         </div> 
         <br/>       
@@ -75,10 +139,10 @@
                 <span style="font-size:12px; font-weight:700">DESCRIPCIÓN DEL BIEN </span>
             </td>
             <td style="border:1px solid black; width:19%" >
-                <span style="font-size:12px; font-weight:700; margin-left:1px">SEDE / OFICINA </span>
+                <span style="font-size:12px; font-weight:700">SEDE / OFICINA </span>
             </td>
             <td style="border:1px solid black; width:10%">
-                <span style="font-size:12px; font-weight:700; margin-left:1px">ESTADO DE USO</span>
+                <span style="font-size:12px; font-weight:700">ESTADO DE USO</span>
             </td>
         </tr>
         </table>

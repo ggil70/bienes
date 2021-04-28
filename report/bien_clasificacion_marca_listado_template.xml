@@ -38,26 +38,26 @@
 						        <table style="border:1px solid black; width:100%">
 									<tr style="height:60px" valign="top">
 										<td style="border:1px solid black; width:6%; text-align:center">
-											<small t-esc="bienes['bienes_numbien']"/>
+											<span t-esc="bienes['bienes_numbien']" style="font-size:11px"/>
 										</td>	
 										<td style="border:1px solid black; width:20%; text-align:center">
-												<small t-esc="bienes['clasificador_bien_id'][1]" style="margin-left:4px"/><small> / </small>
-                                                <small t-esc="bienes['modelo_bien_id'][1]"/>
+												<span t-esc="bienes['clasificador_bien_id'][1]" style="margin-left:4px;font-size:11px"/><span> / </span>
+                                                <span t-esc="bienes['modelo_bien_id'][1]" style="font-size:11px"/>
                                             
 										</td>                                        
                                         
 										<td style="border:1px solid black; width:45%; text-align:left">
-											<small t-esc="bienes['bienes_nombre']" style="margin-left:4px"/>
+											<span t-esc="bienes['bienes_nombre']" style="margin-left:4px; font-size:11px"/>
 										</td>	
 										<td style="border:1px solid black; width:19%; text-align:left" >
-												<small t-esc="bienes['bienes_sedes_id'][1]" style="margin-left:4px"/><small> / </small>
-                                                <small t-esc="bienes['bienes_oficinas_id'][1]"/>
+												<span t-esc="bienes['bienes_sedes_id'][1]" style="margin-left:4px; font-size:11px"/><span> / </span>
+                                                <span t-esc="bienes['bienes_oficinas_id'][1]" style="font-size:11px"/>
 										</td>                                
 										<td style="border:1px solid black; width:10%; text-align:center">
 											<!-- Nota al pasar un campo texto por parametro da error-->
 											<!-- por lo cual hay que guardarlo en una variable y dspues-->
 											<!-- pasarlo por parametro -->
-											     <small t-esc="bienes['estado_bien_id'][1]"/>
+											     <small t-esc="bienes['estado_bien_id'][1]" style="font-size:11px"/>
 										</td> 
 									</tr>
 									</table>

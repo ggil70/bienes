@@ -9,7 +9,7 @@ class ReporteFichaOficinaListadoRender(models.AbstractModel):
     
     def m_observacion(self, observa):
         if observa == False:
-            return ''
+            return observa
         else:   
             observa = str(observa)
             if len(observa) > 150:
@@ -45,8 +45,9 @@ class ReporteFichaOficinaListadoRender(models.AbstractModel):
         #record = self._cr.dictfetchall()
 
         today = fields.Datetime.now()
-        
         fecha = today.strftime('%d/%m/%Y')
+        
+        
         return {
             'docs': data['bienes_data'],
             'sede':data["sede"],

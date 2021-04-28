@@ -24,5 +24,6 @@
 from . import ficha_bien_oficina_reporte_wizard
 from . import listado_bien_grupo_reporte_wizard
 from . import listado_bien_clasificacion_marca_reporte_wizard
+from . import listado_bienes_sedes_reporte_wizard
 
 

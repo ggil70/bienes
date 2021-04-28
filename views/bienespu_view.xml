@@ -11,7 +11,7 @@
             <form string="bienes">
                 <header>
                     
-                    <button name ='mover_inv_inicial' string="Realizar Inventario Inicial" type='object'
+                    <button name ='mover_inv_inicial' string="Generar Inventario Inicial" type='object'
                              attrs="{'invisible':[('tipo_estatus_inventario_id','in',(1,2,3))]}" 
                             confirm="Esta seguro de realizar el Inventario Inicial del Bien ? " class="btn_primary"/>/> 
                 </header>                
@@ -73,14 +73,17 @@
                                  <group col="4" colspan="2">
 									 <field name="resp_uso_id" attrs="{'readonly':[('tipo_estatus_inventario_id','in',(1,2,3))]}" 
                                             options='{"no_open": True,"no_create": 1, "no_create_edit": 1}' /> 
-									 <field name="tipo_estatus_inventario_id" attrs="{'readonly':True}" /> 
+                                    <field name="fech_inventario" style="width:50%" 
+                                            attrs="{'readonly':[('tipo_estatus_inventario_id','in',(1,2,3))]}" />
+                                    <field name="tipo_estatus_inventario_id" attrs="{'readonly':True}" />         
+									 
                                      
                                  </group>
-                                 <group col="6" colspan="2">
-                                     <field name="fech_inventario" style="width:50%" 
-                                            attrs="{'readonly':[('tipo_estatus_inventario_id','in',(1,2,3))]}" />  
+                            <!--     <group col="6" colspan="4">
+                                     
+  
                                  </group>    
-                                 
+                            -->     
                                  
                                  
                              </sheet>   
