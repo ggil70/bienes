@@ -190,9 +190,7 @@
       <field name="model">bienes</field>
       <field name="type">tree</field>
       <field name="arch" type="xml">
-         <tree string="Bienes" decoration-danger="tipo_estatus_inventario_id==4">
-         
-    
+         <tree string="Bienes" decoration-danger="tipo_estatus_inventario_id==4" >
              <field name="bienes_numbien" string="Nro. Bien"/>
              <field name="grupo_bien_id"/>
              <field name="bienes_nombre"/>
@@ -239,7 +237,12 @@
         <field name="res_model">bienes</field>
         
         <field name="view_mode">tree,form</field>
+        <field name="domain">[('sw_desincorporado','=', 0)]</field>
         <field name = "context">
+
+            
+            
+            
            {'readonly_by_pass': ['bienes_nombre',]}
         </field>
 </record>

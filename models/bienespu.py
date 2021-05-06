@@ -157,7 +157,8 @@ class bienes(models.Model):
                       size=3, default='09', help='Registra el Codigo de la Información del Organismo para la Remisión')
                       
     movimiento_deta_id = fields.Integer(string='movimiento_id', help='Permite obtener el ultimo movimiento del bien') 
-    inventario_inicial = fields.Integer(string='Inventario Inicial', default=0)                 
+    inventario_inicial = fields.Integer(string='Inventario Inicial', default=0)   
+    sw_desincorporado = fields.Integer(string='sw_desincorporado', default=0)              
 
     @api.onchange('bienes_numbien')
     def onchange_bienes_numbien(self):
