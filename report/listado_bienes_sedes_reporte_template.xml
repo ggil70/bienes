@@ -27,6 +27,8 @@
             <t t-set='sw_oficina' t-value='0'/>
             <t t-set='sw_resumen' t-value='0'/>
             <t t-set='total_oficina' t-value='0'/>
+            <t t-set='total_monto' t-value='0'/>
+            <t t-set='total_monto_sede' t-value='0'/>
              
 
             <t t-foreach="docs" t-as="bienes">
@@ -49,6 +51,7 @@
                             </t>
                                 
                             <t t-set='total_oficina' t-value='0'/>
+                            <t t-set='total_monto' t-value='0'/>
                             <t t-set='linea' t-value='0'/>
                         </t>    
                     </t>
@@ -61,22 +64,26 @@
                         
                         <table style="border:1px solid black; width:100%">
                         <tr style=" height:60px" align="center">
-                            <td style="border:1px solid black; width:8%" >
+                            <td style="border:1px solid black; width:7%" >
                                 <span style="font-size:12px; font-weight:700;">NÚMERO DEL BIEN </span>
                             </td>
-                            <td style="border:1px solid black; width:42%" >
+                            <td style="border:1px solid black; width:39%" >
                                 <span style="font-size:12px; font-weight:700;">DESCRIPCIÓN DEL BIEN </span>
                             </td> 
-                            <td style="border:1px solid black; width:12%" >
+                            <td style="border:1px solid black; width:10%" >
                                 <span style="font-size:12px; font-weight:700;">ASIGNADO A </span>
                             </td> 
-                            <td style="border:1px solid black; width:8%" >
+                            <td style="border:1px solid black; width:7%" >
                                 <span style="font-size:12px; font-weight:700;">FECHA ASIGNACIÓN </span>
                             </td> 
                             <td style="border:1px solid black; width:10%" >
+                                <span style="font-size:12px; font-weight:700;">Costo </span>
+                            </td>                            
+                            
+                            <td style="border:1px solid black; width:9%" >
                                 <span style="font-size:12px; font-weight:700;">ESTADO USO </span>
                             </td> 
-                            <td style="border:1px solid black; width:20%" >
+                            <td style="border:1px solid black; width:18%" >
                                 <span style="font-size:12px; font-weight:700;">OBSERVACIÓN </span>
                             </td>                            
 
@@ -88,28 +95,36 @@
                     
                     <t t-set='sw_inicio' t-value='1'/>
                     <t t-set='total_oficina' t-value='total_oficina + 1'/>
+                    <t t-set='total_monto' t-value='total_monto + bienes["costo"]'/>
+                    <t t-set='total_monto_sede' t-value='total_monto_sede + bienes["costo"]'/>
+                    
                     <t t-set='linea' t-value='linea+1'/>
                     
                     
                     <table style="border:1px solid black; width:100%">
                         <tr style="height:60px" valign="top">
-                            <td style="border:1px solid black; width:8%; text-align:center">
+                            <td style="border:1px solid black; width:7%; text-align:center">
                                 <span t-esc="bienes['bienes_numbien']" style="font-size:12px;"/>
                             </td>
-                            <td style="border:1px solid black; width:42%; text-align:left">
+                            <td style="border:1px solid black; width:39%; text-align:left">
                                 <span t-esc="bienes['bienes_nombre']" style="font-size:12px; margin-left:4px"/>
                             </td>
-                            <td style="border:1px solid black; width:12%; text-align:center">
+                            <td style="border:1px solid black; width:10%; text-align:center">
                                 <span t-esc="bienes['personas_pnombre']" style="font-size:12px;"/><span> </span>
                                 <span t-esc="bienes['personas_papellido']" style="font-size:12px;"/>
                             </td>
-                            <td style="border:1px solid black; width:8%; text-align:center">
+                            <td style="border:1px solid black; width:7%; text-align:center">
                                 <span t-esc="bienes['fech_inventario']" style="font-size:12px;"/>
                             </td>
-                            <td style="border:1px solid black; width:10%; text-align:center">
+
+                            <td style="border:1px solid black; width:10%; text-align:right">
+                                <span t-esc="f_costo(bienes['costo'])" style="font-size:12px; margin-right:2px"/>
+                            </td>
+
+                            <td style="border:1px solid black; width:9%; text-align:center">
                                 <span t-esc="bienes['estado_bien_nombre']" style="font-size:12px; "/>
                             </td>
-                            <td style="border:1px solid black; width:20%; text-align:left">
+                            <td style="border:1px solid black; width:18%; text-align:left">
                                 <t t-set='observa' t-value='bienes["observacion"]'/>
                                 <span style="font-size:10px; margin-left:4px;" t-esc="m_observacion(observa)"/>
                             </td>

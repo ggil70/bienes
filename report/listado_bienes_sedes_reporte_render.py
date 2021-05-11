@@ -19,9 +19,9 @@ class ReporteFichaOficinaListadoRender(models.AbstractModel):
             return observa
 
 
-    #def f_costo(self, costo):
-    #    costo_f = "{0:.7f}".format(costo)
-    #    return costo_f
+    def f_costo(self, costo):
+        costo_f = "{0:.7f}".format(costo)
+        return costo_f
 
 
         
@@ -40,7 +40,8 @@ class ReporteFichaOficinaListadoRender(models.AbstractModel):
             'nro_bienes':data["nro_bienes"],
             'date_today': fecha,
             'm_observacion': self.m_observacion,
-            #'f_costo': self.f_costo,
+            'f_costo': self.f_costo,
+            
             #'tot_costo': data["tot_costo"],
         }
         

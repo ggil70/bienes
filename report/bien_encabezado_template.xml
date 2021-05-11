@@ -42,14 +42,31 @@
                 <span style="font-weight:700">Total de Bienes de la Oficina: </span>
                 <small t-esc="total_oficina"/>
             </td>	
+            <td style="border:1px solid black; width:8%; text-align:center">
+                <span style="font-weight:700">Total Costo de la Oficina: </span>
+                
+                <small t-esc="f_costo(total_monto)"/>
+            </td>	
+
         </tr> 
+     </table>
+     </div>
+     <br/>
+     <div align="center">
+     <table style="border:1px solid black; width:40%;">   
         <t t-if='sw_final == 1'> 
             <tr style="height:40px" valign="top">
                 <td style="border:1px solid black; width:8%; text-align:center">
-                    <span style="font-weight:700; font-size:14px">Total de Bienes Sede: </span>
+                    <span style="font-weight:700; font-size:16px">Total de Bienes Sede: </span>
                     <span> </span>
-                    <span t-esc="nro_bienes" style="font-size:14px"/>
-                </td>                    
+                    <span t-esc="nro_bienes" style="font-size:16px"/>
+                </td>   
+                
+                <td style="border:1px solid black; width:8%; text-align:center">
+                    <span style="font-weight:700; font-size:16px">Total Costo Sede: </span>
+                    <span> </span>
+                    <span t-esc="f_costo(total_monto_sede)" style="font-size:16px"/>
+                </td>                                                     
                 
             </tr>	
         </t>    
